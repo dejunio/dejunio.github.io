@@ -1,513 +1,684 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anna Regatieri Advocacia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --azul: #0b1b4d;
-      --dourado: #a57a2c;
-      --cinza-claro: #f5f6f8;
-      --cinza: #4b4b4b;
-      --bg: #ffffff;
-      --fonte-titulo: "Playfair Display", serif;
-      --fonte-texto: "Inter", sans-serif;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      font-family: var(--fonte-texto);
-      color: var(--cinza);
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      background: #ffffffcc;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e4e4e4;
-      z-index: 999;
-    }
-
-    .container {
-      max-width: 1250px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* HEADER */
-    .top-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-area img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-
-    .logo-text {
-      line-height: 1.2;
-    }
-
-    .logo-title {
-      font-family: var(--fonte-titulo);
-      font-size: 20px;
-      color: var(--azul);
-      font-weight: 600;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--cinza);
-      font-size: 14px;
-      margin-left: 26px;
-      font-weight: 500;
-      transition: 0.2s;
-    }
-
-    nav a:hover {
-      color: var(--azul);
-    }
-
-    .btn-header {
-      text-decoration: none;
-      padding: 10px 20px;
-      border: 1px solid var(--dourado);
-      color: var(--azul);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      border-radius: 30px;
-      text-transform: uppercase;
-      transition: 0.2s;
-    }
-
-    .btn-header:hover {
-      background: var(--dourado);
-      color: #fff;
-    }
-
-    /* HERO */
-    .hero {
-      padding: 80px 0;
-      background: #ffffff;
-      border-bottom: 1px solid #e4e4e4;
-    }
-
-    .hero-flex {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .hero-left {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #fafafa;
-      padding: 6px 14px;
-      border-radius: 30px;
-      border: 1px solid #e6e6e6;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #777;
-      font-weight: 500;
-    }
-
-    .hero-title {
-      font-family: var(--fonte-titulo);
-      color: var(--azul);
-      font-size: 40px;
-      margin-top: 20px;
-      max-width: 550px;
-    }
-
-    .hero-title span {
-      color: var(--dourado);
-    }
-
-    .hero-text {
-      font-size: 15px;
-      line-height: 1.6;
-      margin-top: 20px;
-      max-width: 520px;
-      color: #555;
-    }
-
-    .hero-buttons {
-      margin-top: 30px;
-      display: flex;
-      gap: 12px;
-    }
-
-    .btn-primary {
-      background: var(--azul);
-      color: #fff;
-      padding: 12px 28px;
-      border-radius: 30px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    .btn-primary:hover {
-      background: #0c235f;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #ccc;
-      padding: 12px 28px;
-      border-radius: 30px;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: 600;
-      text-decoration: none;
-      color: #444;
-      transition: 0.2s;
-    }
-
-    .btn-outline:hover {
-      border-color: var(--dourado);
-      color: var(--azul);
-    }
-
-    /* ÁREAS */
-    section {
-      padding: 70px 0;
-    }
-
-    h2.section-title {
-      font-family: var(--fonte-titulo);
-      font-size: 32px;
-      color: var(--azul);
-      font-weight: 600;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: #fff;
-      border: 1px solid #e4e4e4;
-      padding: 22px;
-      border-radius: 16px;
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 14px #00000012;
-    }
-
-    .card h3 {
-      color: var(--azul);
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.6;
-    }
-
-    /* SOBRE */
-    .sobre-flex {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-top: 30px;
-    }
-
-    .sobre-text,
-    .sobre-bloco {
-      flex: 1;
-      min-width: 300px;
-    }
-
-    .sobre-bloco {
-      background: var(--cinza-claro);
-      padding: 28px;
-      border-radius: 18px;
-      border: 1px solid #e4e4e4;
-    }
-
-    /* CONTATO */
-    .contato-grid {
-      display: grid;
-      grid-template-columns: 1fr 0.8fr;
-      gap: 40px;
-    }
-
-    @media (max-width: 900px) {
-      .contato-grid {
-        grid-template-columns: 1fr;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anna Regatieri Advocacia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --azul: #0b1b4d;
+        --dourado: #a57a2c;
+        --cinza-claro: #f5f6f8;
+        --cinza: #4b4b4b;
+        --bg: #ffffff;
+        --fonte-titulo: "Playfair Display", serif;
+        --fonte-texto: "Inter", sans-serif;
       }
-    }
 
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 8px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      outline: none;
-    }
+      body {
+        margin: 0;
+        background: var(--bg);
+        font-family: var(--fonte-texto);
+        color: var(--cinza);
+      }
 
-    form input:focus,
-    form textarea:focus {
-      border-color: var(--dourado);
-    }
+      header {
+        position: sticky;
+        top: 0;
+        background: #ffffffcc;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #e4e4e4;
+        z-index: 999;
+      }
 
-    form button {
-      margin-top: 14px;
-      width: 200px;
-      padding: 12px 0;
-      background: var(--azul);
-      border: none;
-      border-radius: 30px;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+      .container {
+        max-width: 1250px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
 
-    form button:hover {
-      background: #0c265f;
-    }
+      /* HEADER */
+      .top-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 0;
+      }
 
-    footer {
-      border-top: 1px solid #e4e4e4;
-      padding: 24px 0;
-      text-align: center;
-      font-size: 13px;
-      color: #666;
-    }
-  </style>
-</head>
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
 
-<body>
+      .logo-area img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+      }
 
-  <!-- HEADER -->
-  <header>
-    <div class="container top-bar">
-      <div class="logo-area">
-        <img src="logoAR.png" alt="Anna Regatieri Logo">
-        <div class="logo-text">
-          <div class="logo-title">Anna Regatieri</div>
-          <div style="font-size:12px; letter-spacing:3px; color:#777;">ADVOCACIA</div>
+      .logo-text {
+        line-height: 1.2;
+      }
+
+      .logo-title {
+        font-family: var(--fonte-titulo);
+        font-size: 20px;
+        color: var(--azul);
+        font-weight: 600;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--cinza);
+        font-size: 14px;
+        margin-left: 26px;
+        font-weight: 500;
+        transition: 0.2s;
+      }
+
+      nav a:hover {
+        color: var(--azul);
+      }
+
+      .btn-header {
+        text-decoration: none;
+        padding: 10px 20px;
+        border: 1px solid var(--dourado);
+        color: var(--azul);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        border-radius: 30px;
+        text-transform: uppercase;
+        transition: 0.2s;
+      }
+
+      .btn-header:hover {
+        background: var(--dourado);
+        color: #fff;
+      }
+
+      /* HERO */
+      .hero {
+        padding: 80px 0;
+        background: #ffffff;
+        border-bottom: 1px solid #e4e4e4;
+      }
+
+      .hero-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .hero-left {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #fafafa;
+        padding: 6px 14px;
+        border-radius: 30px;
+        border: 1px solid #e6e6e6;
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #777;
+        font-weight: 500;
+      }
+
+      .hero-title {
+        font-family: var(--fonte-titulo);
+        color: var(--azul);
+        font-size: 40px;
+        margin-top: 20px;
+        max-width: 550px;
+      }
+
+      .hero-title span {
+        color: var(--dourado);
+      }
+
+      .hero-text {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-top: 20px;
+        max-width: 520px;
+        color: #555;
+      }
+
+      .hero-buttons {
+        margin-top: 30px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn-primary {
+        background: var(--azul);
+        color: #fff;
+        padding: 12px 28px;
+        border-radius: 30px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .btn-primary:hover {
+        background: #0c235f;
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 1px solid #ccc;
+        padding: 12px 28px;
+        border-radius: 30px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+        text-decoration: none;
+        color: #444;
+        transition: 0.2s;
+      }
+
+      .btn-outline:hover {
+        border-color: var(--dourado);
+        color: var(--azul);
+      }
+
+      /* ÁREAS */
+      section {
+        padding: 70px 0;
+      }
+
+      h2.section-title {
+        font-family: var(--fonte-titulo);
+        font-size: 32px;
+        color: var(--azul);
+        font-weight: 600;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 22px;
+        margin-top: 40px;
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid #e4e4e4;
+        padding: 22px;
+        border-radius: 16px;
+        transition: 0.2s;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 14px #00000012;
+      }
+
+      .card h3 {
+        color: var(--azul);
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* SOBRE */
+      .sobre-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-top: 30px;
+      }
+
+      .sobre-text,
+      .sobre-bloco {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .sobre-bloco {
+        background: var(--cinza-claro);
+        padding: 28px;
+        border-radius: 18px;
+        border: 1px solid #e4e4e4;
+      }
+
+      /* CONTATO */
+      .contato-grid {
+        display: grid;
+        grid-template-columns: 1fr 0.8fr;
+        gap: 40px;
+      }
+
+      @media (max-width: 900px) {
+        .contato-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      form input,
+      form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 8px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        outline: none;
+      }
+
+      form input:focus,
+      form textarea:focus {
+        border-color: var(--dourado);
+      }
+
+      form button {
+        margin-top: 14px;
+        width: 200px;
+        padding: 12px 0;
+        background: var(--azul);
+        border: none;
+        border-radius: 30px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      form button:hover {
+        background: #0c265f;
+      }
+
+      .form-status {
+        margin-top: 12px;
+        font-size: 13px;
+        color: var(--azul);
+      }
+
+      footer {
+        border-top: 1px solid #e4e4e4;
+        padding: 24px 0;
+        text-align: center;
+        font-size: 13px;
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="container top-bar">
+        <div class="logo-area">
+          <img src="logoAR.png" alt="Anna Regatieri Logo" />
+          <div class="logo-text">
+            <div class="logo-title">Anna Regatieri</div>
+            <div style="font-size: 12px; letter-spacing: 3px; color: #777">
+              ADVOCACIA
+            </div>
+          </div>
         </div>
+
+        <nav>
+          <a href="#areas">Áreas</a>
+          <a href="#sobre">O Escritório</a>
+          <a href="#diferenciais">Diferenciais</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <a
+          class="btn-header"
+          href="https://wa.me/61982227773?text=Olá%2C%20gostaria%20de%20agendar uma%20consulta"
+          target="_blank"
+          >Agendar Consulta</a
+        >
       </div>
+    </header>
 
-      <nav>
-        <a href="#areas">Áreas</a>
-        <a href="#sobre">O Escritório</a>
-        <a href="#diferenciais">Diferenciais</a>
-        <a href="#contato">Contato</a>
-      </nav>
-
-      <a class="btn-header" href="#contato">Agendar Consulta</a>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-flex">
-      <div class="hero-left">
-        <div class="hero-badge"><div style="width:7px;height:7px;background:var(--dourado);border-radius:50%;"></div>Atendimento estratégico</div>
-        <h1 class="hero-title">Elegância, precisão e <span>segurança jurídica</span> em cada detalhe.</h1>
-        <p class="hero-text">
-          O escritório Anna Regatieri combina técnica apurada, atendimento próximo e discrição absoluta, oferecendo soluções jurídicas de alto padrão para clientes que prezam segurança e confiança.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#contato" class="btn-primary">Falar agora</a>
-          <a href="#areas" class="btn-outline">Áreas de atuação</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ÁREAS -->
-  <section id="areas">
-    <div class="container">
-      <h2 class="section-title">Áreas de Atuação</h2>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>Direito de Família</h3>
-          <p>Atuação sensível e técnica em divórcios, guarda, alimentos, inventários e planejamento sucessório.</p>
-        </div>
-        <div class="card">
-          <h3>Direito Civil & Contratos</h3>
-          <p>Elaboração, revisão e análise jurídica de contratos com linguagem clara e foco preventivo.</p>
-        </div>
-        <div class="card">
-          <h3>Direito do Consumidor</h3>
-          <p>Planos de saúde, serviços essenciais, cobranças abusivas e demandas de responsabilidade civil.</p>
-        </div>
-        <div class="card">
-          <h3>Direito Empresarial</h3>
-          <p>Assessoria estratégica para empresas, gestão de riscos e fortalecimento da segurança jurídica.</p>
-        </div>
-        <div class="card">
-          <h3>Consultivo Preventivo</h3>
-          <p>Evite litígios com pareceres claros, análise de riscos e orientação contínua.</p>
-        </div>
-        <div class="card">
-          <h3>Contencioso Estratégico</h3>
-          <p>Atuação firme, técnica e atualizada em processos judiciais de alta complexidade.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOBRE -->
-  <section id="sobre">
-    <div class="container">
-      <h2 class="section-title">O Escritório</h2>
-
-      <div class="sobre-flex">
-        <div class="sobre-text">
-          <p style="line-height:1.6; font-size:15px;">
-            O escritório Anna Regatieri foi criado para unir técnica, estratégia e acolhimento.
-            Cada caso é tratado com profundidade analítica e atenção genuína, sempre preservando
-            a confidencialidade e o respeito à história de cada cliente.
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-flex">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <div
+              style="
+                width: 7px;
+                height: 7px;
+                background: var(--dourado);
+                border-radius: 50%;
+              "
+            ></div>
+            Atendimento estratégico
+          </div>
+          <h1 class="hero-title">
+            Elegância, precisão e <span>segurança jurídica</span> em cada
+            detalhe.
+          </h1>
+          <p class="hero-text">
+            O escritório Anna Regatieri combina técnica apurada, atendimento
+            próximo e discrição absoluta, oferecendo soluções jurídicas de alto
+            padrão para clientes que prezam segurança e confiança.
           </p>
-          <p style="line-height:1.6; font-size:15px; margin-top:15px;">
-            Acreditamos que o Direito deve ser exercido com ética, clareza e compromisso real
-            com o impacto das decisões jurídicas na vida das pessoas e das empresas.
+
+          <div class="hero-buttons">
+            <a href="#contato" class="btn-primary">Falar agora</a>
+            <a href="#areas" class="btn-outline">Áreas de atuação</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÁREAS -->
+    <section id="areas">
+      <div class="container">
+        <h2 class="section-title">Áreas de Atuação</h2>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Direito de Família</h3>
+            <p>
+              Atuação sensível e técnica em divórcios, guarda, alimentos,
+              inventários e planejamento sucessório.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Direito Civil & Contratos</h3>
+            <p>
+              Elaboração, revisão e análise jurídica de contratos com linguagem
+              clara e foco preventivo.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Direito do Consumidor</h3>
+            <p>
+              Planos de saúde, serviços essenciais, cobranças abusivas e
+              demandas de responsabilidade civil.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Direito Empresarial</h3>
+            <p>
+              Assessoria estratégica para empresas, gestão de riscos e
+              fortalecimento da segurança jurídica.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Consultivo Preventivo</h3>
+            <p>
+              Evite litígios com pareceres claros, análise de riscos e
+              orientação contínua.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Contencioso Estratégico</h3>
+            <p>
+              Atuação firme, técnica e atualizada em processos judiciais de alta
+              complexidade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="container">
+        <h2 class="section-title">O Escritório</h2>
+
+        <div class="sobre-flex">
+          <div class="sobre-text">
+            <p style="line-height: 1.6; font-size: 15px">
+              O escritório Anna Regatieri foi criado para unir técnica,
+              estratégia e acolhimento. Cada caso é tratado com profundidade
+              analítica e atenção genuína, sempre preservando a
+              confidencialidade e o respeito à história de cada cliente.
+            </p>
+            <p style="line-height: 1.6; font-size: 15px; margin-top: 15px">
+              Acreditamos que o Direito deve ser exercido com ética, clareza e
+              compromisso real com o impacto das decisões jurídicas na vida das
+              pessoas e das empresas.
+            </p>
+          </div>
+
+          <div class="sobre-bloco">
+            <h3
+              style="color: var(--azul); font-size: 16px; margin-bottom: 10px"
+            >
+              Compromisso
+            </h3>
+            <p style="font-size: 14px; line-height: 1.6">
+              Atendimento personalizado, escuta ativa e soluções elaboradas com
+              rigor técnico. O objetivo é garantir segurança jurídica,
+              acolhimento e confiança em todas as fases.
+            </p>
+            <p style="margin-top: 18px; font-size: 13px; color: #555">
+              <strong style="color: var(--azul)"
+                >Dra. Anna Carolina Barros Regatieri</strong
+              ><br />
+              OAB/DF • Advocacia Individual
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section id="diferenciais" style="background: var(--cinza-claro)">
+      <div class="container">
+        <h2 class="section-title">Diferenciais</h2>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Atendimento próximo</h3>
+            <p>
+              Comunicação clara, humanizada e focada no que realmente importa.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Visão estratégica</h3>
+            <p>
+              Análise de riscos, visão ampla e atuação alinhada a resultados
+              reais.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Atualização constante</h3>
+            <p>
+              Estudo contínuo da jurisprudência e doutrina para atuação moderna
+              e eficaz.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato">
+      <div class="container contato-grid">
+        <div>
+          <h2 class="section-title">Fale com o Escritório</h2>
+          <p style="margin-top: 12px; line-height: 1.6; color: #555">
+            Envie sua mensagem. Resposta rápida e atendimento discreto.
+          </p>
+
+          <form
+            id="contato-form"
+            action="https://formsubmit.co/anna@annaregatieri.com.br"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="Novo contato do site" />
+            <input type="hidden" name="_captcha" value="false" />
+
+            <label for="nome">Nome completo</label>
+            <input
+              id="nome"
+              type="text"
+              name="nome"
+              placeholder="Digite seu nome"
+              required
+            />
+
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="seuemail@exemplo.com"
+              required
+            />
+
+            <label for="telefone">Telefone</label>
+            <input
+              id="telefone"
+              type="text"
+              name="telefone"
+              placeholder="(61) 9 0000-0000"
+            />
+
+            <label for="mensagem">Mensagem</label>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              rows="5"
+              placeholder="Descreva brevemente sua demanda"
+              required
+            ></textarea>
+
+            <button type="submit">Enviar</button>
+            <div class="form-status" id="form-status" role="status"></div>
+          </form>
+        </div>
+
+        <div>
+          <h3
+            style="
+              color: var(--azul);
+              font-family: var(--fonte-titulo);
+              font-size: 20px;
+            "
+          >
+            Informações
+          </h3>
+
+          <p style="margin-top: 18px; font-size: 14px; line-height: 1.6">
+            <strong>Endereço:</strong><br />
+            SHIN, CA 01, Edifício Deck Norte,<br />
+            Conjunto A, Bloco A, sala 226 – Brasília/DF <br />
+            CEP: 71.503-501
+          </p>
+
+          <p style="margin-top: 18px; font-size: 14px; line-height: 1.6">
+            <strong>Contato:</strong><br />
+            <a
+              href="https://wa.me/61982227773?text=Olá%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
+              target="_blank"
+              >WhatsApp: (61) 98222-7773</a
+            ><br />
+            Email: contato@annaregatieri.adv.br
+          </p>
+
+          <p style="margin-top: 18px; font-size: 14px; line-height: 1.6">
+            <strong>Atendimento:</strong><br />
+            Mediante agendamento.<br />
+            Presencial e online.
           </p>
         </div>
-
-        <div class="sobre-bloco">
-          <h3 style="color:var(--azul); font-size:16px; margin-bottom:10px;">Compromisso</h3>
-          <p style="font-size:14px; line-height:1.6;">
-            Atendimento personalizado, escuta ativa e soluções elaboradas com rigor técnico.
-            O objetivo é garantir segurança jurídica, acolhimento e confiança em todas as fases.
-          </p>
-          <p style="margin-top:18px; font-size:13px; color:#555;">
-            <strong style="color:var(--azul);">Dra. Anna Carolina Barros Regatieri</strong><br>
-            OAB/DF • Advocacia Individual
-          </p>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- DIFERENCIAIS -->
-  <section id="diferenciais" style="background:var(--cinza-claro);">
-    <div class="container">
-      <h2 class="section-title">Diferenciais</h2>
+    <!-- FOOTER -->
+    <footer>
+      © 2025 Anna Regatieri Advocacia — Todos os direitos reservados.
+    </footer>
+    <script>
+      (function () {
+        const form = document.getElementById("contato-form");
+        const statusEl = document.getElementById("form-status");
+        if (!form || !statusEl) return;
 
-      <div class="grid-3">
-        <div class="card">
-          <h3>Atendimento próximo</h3>
-          <p>Comunicação clara, humanizada e focada no que realmente importa.</p>
-        </div>
-        <div class="card">
-          <h3>Visão estratégica</h3>
-          <p>Análise de riscos, visão ampla e atuação alinhada a resultados reais.</p>
-        </div>
-        <div class="card">
-          <h3>Atualização constante</h3>
-          <p>Estudo contínuo da jurisprudência e doutrina para atuação moderna e eficaz.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (window.location.protocol === "file:") {
+          statusEl.textContent =
+            "Para testar o envio, abra este arquivo por um servidor (ex.: http://localhost) em vez de file://.";
+          return;
+        }
 
-  <!-- CONTATO -->
-  <section id="contato">
-    <div class="container contato-grid">
-      <div>
-        <h2 class="section-title">Fale com o Escritório</h2>
-        <p style="margin-top:12px; line-height:1.6; color:#555;">
-          Envie sua mensagem. Resposta rápida e atendimento discreto.
-        </p>
+        const ajaxUrl =
+          form.getAttribute("data-ajax-action") ||
+          form.action.replace(
+            "https://formsubmit.co/",
+            "https://formsubmit.co/ajax/"
+          );
 
-        <form>
-          <label>Nome completo</label>
-          <input type="text" placeholder="Digite seu nome">
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          statusEl.textContent = "Enviando...";
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Enviando...";
+          }
 
-          <label>Email</label>
-          <input type="email" placeholder="seuemail@exemplo.com">
+          try {
+            const formData = new FormData(form);
+            const payload = {};
+            formData.forEach((value, key) => {
+              payload[key] = value;
+            });
 
-          <label>Telefone</label>
-          <input type="text" placeholder="(61) 9 0000-0000">
+            const response = await fetch(ajaxUrl, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify(payload),
+            });
 
-          <label>Mensagem</label>
-          <textarea rows="5" placeholder="Descreva brevemente sua demanda"></textarea>
+            const result = await response.json();
+            if (!response.ok || result.success !== "true") {
+              throw new Error(result.message || "Falha no envio");
+            }
 
-          <button type="submit">Enviar</button>
-        </form>
-      </div>
-
-      <div>
-        <h3 style="color:var(--azul); font-family:var(--fonte-titulo); font-size:20px;">Informações</h3>
-
-        <p style="margin-top:18px; font-size:14px; line-height:1.6;">
-          <strong>Endereço:</strong><br>
-          SHIN, CA 01, Edifício Deck Norte,<br>
-          Conjunto A, Bloco A, sala 226 – Brasília/DF <br>
-          CEP: 71.503-501
-        </p>
-
-        <p style="margin-top:18px; font-size:14px; line-height:1.6;">
-          <strong>Contato:</strong><br>
-          Telefone/WhatsApp: (61) 98222-7773<br>
-          Email: contato@annaregatieri.adv.br
-        </p>
-
-        <p style="margin-top:18px; font-size:14px; line-height:1.6;">
-          <strong>Atendimento:</strong><br>
-          Mediante agendamento.<br>
-          Presencial e online.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2025 Anna Regatieri Advocacia — Todos os direitos reservados.
-  </footer>
-
-</body>
+            statusEl.textContent =
+              "Mensagem enviada com sucesso! Em breve entraremos em contato.";
+            form.reset();
+          } catch (err) {
+            statusEl.textContent =
+              "Não foi possível enviar agora. Tente novamente em instantes.";
+          } finally {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = "Enviar";
+            }
+          }
+        });
+      })();
+    </script>
+  </body>
 </html>
